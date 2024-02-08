@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+    image: hub.geekmark.net/prod/vernus-vpn:prod
+    container_name: vernus-vpn
+    hostname: vernus-vpn
+    cap_add:
+      - ALL
+    restart: always
+    devices:
+      - /dev/net/tun
+    environment:
+      - TZ= Asia/Shanghai
+      - USERS=vernus
+      - PASSWORD=vernus2013
+      - SPW=VernusVpn@2024
+      - HPW=VernusVpn@2024
+      - TPROXY_TO=192.168.3.100:56868
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/data/app/softether/app/vpn_server.config:/usr/vpnserver/vpn_server.config"
+      - "/data/app/softether/app/data/server_log:/usr/vpnserver/server_log"
+      - "/data/app/softether/app/data/packet_log:/usr/vpnserver/packet_log"
+      - "/data/app/softether/app/data/security_log:/usr/vpnserver/security_log"
+    ports:
+      - 53:53
+      - 444:443
+      - 992:992
+      - 1194:1194/udp
+      - 5555:5555
+      - 500:500/udp
+      - 4500:4500/udp
+      - 1701:1701/udp
