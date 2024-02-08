@@ -1,1 +1,1 @@
-docker build -f ./Dockerfile.ubuntu -t hub.geekmark.net/prod/vernus-vpn:prod .
+docker build -f ./Dockerfile.ubuntu -t chwjbn/softether-to-tproxy:prod .

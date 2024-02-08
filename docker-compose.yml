@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    image: hub.geekmark.net/prod/vernus-vpn:prod
+    image: chwjbn/softether-to-tproxy:prod
     container_name: vernus-vpn
     hostname: vernus-vpn
     cap_add:
